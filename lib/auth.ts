@@ -13,7 +13,7 @@ async function refreshAccessToken(token: any) {
         client_secret: env.AZURE_CLIENT_SECRET,
         grant_type: 'refresh_token',
         refresh_token: token.refreshToken,
-        scope: 'openid profile email offline_access User.Read Calendars.ReadWrite Places.Read.All',
+        scope: 'openid profile email offline_access User.Read Calendars.ReadWrite',
       }),
     });
 
@@ -43,7 +43,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       tenantId: env.AZURE_TENANT_ID,
       authorization: {
         params: {
-          scope: 'openid profile email offline_access User.Read Calendars.ReadWrite Places.Read.All',
+          scope: 'openid profile email offline_access User.Read Calendars.ReadWrite',
         },
       },
     }),
